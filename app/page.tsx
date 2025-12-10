@@ -37,10 +37,10 @@ export default function App() {
 
         <main>
 
-          {/* StorageBrowser Component */}
+          {/* StorageBrowser - Component */}
           <h2>Your Files</h2>
           <StorageBrowser />
-          
+
         </main>
   );
 }
