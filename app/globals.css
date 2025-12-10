@@ -192,3 +192,19 @@ main {
 :global(.amplify-storagebrowser__bucketname) {
   display: none !important;
 }
+
+/* Hide the first column header (likely "Bucket") */
+:global(th.amplify-storage-browser__table-header:nth-child(1)) {
+  display: none !important;
+}
+
+/* Hide the first column cells */
+:global(td.amplify-storage-browser__table-cell:nth-child(1)) {
+  display: none !important;
+}
+
+/* Also hide the standalone bucket name above the table */
+:global(.amplify-storagebrowser__bucketname) {
+  display: none !important;
+}
+
