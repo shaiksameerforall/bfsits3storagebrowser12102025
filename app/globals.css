@@ -177,3 +177,18 @@ main {
 :global(.amplify-storagebrowser__bucketname) {
   display: none !important;
 }
+
+/* Hide the "Bucket" column header */
+:global(.amplify-storagebrowser-table__column--bucket) {
+  display: none !important;
+}
+
+/* Hide the bucket name cell in each row */
+:global(.amplify-storagebrowser-table__cell--bucket) {
+  display: none !important;
+}
+
+/* Hide the standalone bucket name header (in top section) */
+:global(.amplify-storagebrowser__bucketname) {
+  display: none !important;
+}
