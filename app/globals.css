@@ -172,3 +172,8 @@ main {
     border-color: rgba(255,255,255,0.1);
   }
 }
+
+/* Hide the S3 bucket name in Amplify Storage Browser */
+:global(.amplify-storagebrowser__bucketname) {
+  display: none !important;
+}
