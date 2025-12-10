@@ -173,29 +173,22 @@ main {
   }
 }
 
-/* Hide the S3 bucket name in Amplify Storage Browser */
-.amplify-storagebrowser__bucketname {
+/* =======================================================
+   AMPLIFY STORAGE BROWSER OVERRIDES
+======================================================= */
+
+/* Hide ONLY the "Bucket" column (second column) */
+table[class*="storage"] th:nth-child(2),
+table[class*="storage"] td:nth-child(2) {
   display: none !important;
 }
-
-/* Hide the "Bucket" column header */
-.amplify-storagebrowser-table__column--bucket {
-  display: none !important;
+/* Force table to reflow properly after removing a column */
+table[class*="storage"] {
+  table-layout: auto !important;
 }
 
-/* Hide the bucket name cell in each row */
-.amplify-storagebrowser-table__cell--bucket {
+/* Hide the Bucket column (2nd column) */
+table[class*="storage"] th:nth-child(2),
+table[class*="storage"] td:nth-child(2) {
   display: none !important;
 }
-
-/* Hide the first column header (likely "Bucket") */
-th.amplify-storage-browser__table-header:nth-child(1) {
-  display: none !important;
-}
-
-/* Hide the first column cells */
-td.amplify-storage-browser__table-cell:nth-child(1) {
-  display: none !important;
-}
-
-
