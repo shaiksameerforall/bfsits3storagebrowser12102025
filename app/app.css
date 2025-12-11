@@ -1,109 +1,141 @@
+/* Global base */
+html {
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%; /* Stabilizes text scaling on iOS Safari */
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+ 
 body {
-    margin: 0;
-    background: linear-gradient(180deg, rgb(117, 81, 194), rgb(255, 255, 255));
-    display: flex;
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-    height: 100vh;
-    width: 100vw;
-    justify-content: center;
-    align-items: center;
-    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  margin: 0;
+  background: linear-gradient(180deg, rgb(117, 81, 194), rgb(255, 255, 255));
+  display: flex;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+ 
+  /* Avoid fixed vh/vw; use dynamic viewport height and percent width */
+  min-height: 100vh;       /* Fallback for older browsers */
+  min-height: 100dvh;      /* Modern Safari/iOS 16+ */
+  width: 100%;             /* Avoid 100vw to prevent horizontal overflow */
+  justify-content: center;
+  align-items: center;
+ 
+  /* Combine safe area with a base padding using calc() */
+  padding: calc(env(safe-area-inset-top, 0px) + 0px)
+           calc(env(safe-area-inset-right, 0px) + 0px)
+           calc(env(safe-area-inset-bottom, 0px) + 0px)
+           calc(env(safe-area-inset-left, 0px) + 0px);
+}
+ 
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  max-width: 100%;   /* Ensure it doesn’t exceed viewport */
+}
+ 
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  color: white;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+ 
+ul {
+  padding-inline-start: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  margin: 8px 0;
+  border: 1px solid black;
+  gap: 1px;
+  background-color: black;
+  border-radius: 8px;
+ 
+  /* Constrain width and avoid unintended scrollbars */
+  max-width: 100%;
+  overflow: auto; /* Keep only if you actually need internal scrolling */
+}
+ 
+li {
+  background-color: white;
+  padding: 8px;
+}
+ 
+li:hover {
+  background: #dadbf9;
+}
+ 
+a {
+  font-weight: 800;
+  text-decoration: none;
+}
+ 
+/* ✅ Responsive adjustments */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    align-items: flex-start;
+ 
+    /* Combine safe area with intended padding */
+    padding: calc(env(safe-area-inset-top, 0px) + 16px)
+             calc(env(safe-area-inset-right, 0px) + 16px)
+             calc(env(safe-area-inset-bottom, 0px) + 16px)
+             calc(env(safe-area-inset-left, 0px) + 16px);
   }
  
   main {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-  }
- 
-  button {
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: #1a1a1a;
-    cursor: pointer;
-    transition: border-color 0.25s;
-    color: white;
-  }
-  button:hover {
-    border-color: #646cff;
-  }
-  button:focus,
-  button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
+    width: 100%;
   }
  
   ul {
-    padding-inline-start: 0;
-    margin-block-start: 0;
-    margin-block-end: 0;
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    margin: 8px 0;
-    border: 1px solid black;
-    gap: 1px;
-    background-color: black;
-    border-radius: 8px;
-    overflow: auto;
+    width: 100%;
+    font-size: 0.9em;
   }
  
-  li {
-    background-color: white;
-    padding: 8px;
+  button {
+    font-size: 0.9em;
+    padding: 0.5em 1em;
   }
- 
-  li:hover {
-    background: #dadbf9;
-  }
- 
-  a {
-    font-weight: 800;
-    text-decoration: none;
-  }
- 
-  /* ✅ Responsive adjustments */
-@media (max-width: 768px) {
-    body {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 16px;
-        padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-    }
- 
-    main {
-        width: 100%;
-    }
- 
-    ul {
-        width: 100%;
-        font-size: 0.9em;
-    }
- 
-    button {
-        font-size: 0.9em;
-        padding: 0.5em 1em;
-    }
 }
  
 @media (max-width: 480px) {
-    main {
-        max-width: 100%;
-    }
+  main {
+    max-width: 100%;
+  }
  
-    ul {
-        gap: 0;
-    }
+  ul {
+    gap: 0;
+  }
  
-    li {
-        padding: 6px;
-        font-size: 0.85em;
-    }
+  li {
+    padding: 6px;
+    font-size: 0.85em;
+  }
  
-    button {
-        font-size: 0.85em;
-    }}
+  button {
+    font-size: 0.85em;
+  }
+}
  
+/* Optional: Prefer dynamic viewport if supported */
+@supports (height: 100dvh) {
+  body {
+    min-height: 100dvh;
+  }
+}
