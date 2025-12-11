@@ -1,192 +1,107 @@
-/* =======================================================
-   GLOBAL ROOT VARIABLES
-======================================================= */
-:root {
-  --space-1: 0.5rem;
-  --space-2: 0.75rem;
-  --space-3: 1rem;
-  --space-4: 1.25rem;
-  --space-5: 1.5rem;
-  --space-6: 2rem;
-
-  --border-radius: 0.75rem;
-  --max-width: 1200px;
-
-  --foreground-rgb: 0,0,0;
-  --background-start-rgb: 203,190,255;
-  --background-end-rgb: 255,255,255;
-
-  --callout-rgb: 255, 255, 255;
-  --callout-border-rgb: 200, 200, 200;
-  --card-rgb: 255, 255, 255;
-  --card-border-rgb: 180, 180, 180;
-
-  --font-mono: system-ui, monospace;
-}
-
-/* Dark Mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255,255,255;
-    --background-start-rgb: 0,0,0;
-    --background-end-rgb: 0,0,0;
-
-    --callout-rgb: 40,40,40;
-    --callout-border-rgb: 100,100,100;
-    --card-rgb: 120,120,120;
-    --card-border-rgb: 180,180,180;
-  }
-}
-
-/* =======================================================
-   RESET
-======================================================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-  font-size: 16px;
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-  ) rgb(var(--background-start-rgb));
-}
-
-/* =======================================================
-   MAIN LAYOUT
-======================================================= */
-main {
-  width: 100%;
-  min-height: 100dvh;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-@supports not (height: 100dvh) {
-  main { min-height: 100vh; }
-}
-
-/* =======================================================
-   CONTENT WRAPPER
-======================================================= */
-.content {
-  width: 100%;
-  max-width: var(--max-width);
-  padding: 1.5rem;
-}
-
-/* =======================================================
-   DESCRIPTION
-======================================================= */
-.description {
-  max-width: var(--max-width);
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  font-family: var(--font-mono);
-  padding: 1rem;
-}
-
-.description p {
-  padding: 1rem;
-  border-radius: var(--border-radius);
-  background: rgba(var(--callout-rgb), 0.5);
-  border: 1px solid rgba(var(--callout-border-rgb), 0.3);
-}
-
-/* =======================================================
-   GRID
-======================================================= */
-.grid {
-  width: 100%;
-  max-width: var(--max-width);
-  display: grid;
-  gap: 1rem;
-  margin: 0 auto;
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 600px) {
-  .grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (min-width: 1000px) {
-  .grid { grid-template-columns: repeat(3, 1fr); }
-}
-
-@media (min-width: 1300px) {
-  .grid { grid-template-columns: repeat(4, 1fr); }
-}
-
-/* =======================================================
-   CARD
-======================================================= */
-.card {
-  padding: 1rem;
-  border-radius: var(--border-radius);
-  background: rgba(var(--card-rgb), 0.05);
-  border: 1px solid rgba(var(--card-border-rgb), 0.1);
-  transition: 200ms ease;
-}
-
-.card h2 {
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem;
-}
-
-.card p {
-  font-size: 1rem;
-  opacity: 0.9;
-  line-height: 1.5;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .card:hover {
-    background: rgba(var(--card-rgb), 0.15);
+    margin: 0;
+    background: linear-gradient(180deg, rgb(117, 81, 194), rgb(255, 255, 255));
+    display: flex;
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
-}
-
-@media (prefers-color-scheme: dark) {
-  .description p {
-    background: rgba(255,255,255,0.05);
-    border-color: rgba(255,255,255,0.15);
+  
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
   }
-  .card {
-    background: rgba(255,255,255,0.03);
-    border-color: rgba(255,255,255,0.1);
+  
+  button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    color: white;
   }
-}
+  button:hover {
+    border-color: #646cff;
+  }
+  button:focus,
+  button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+  
+  ul {
+    padding-inline-start: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    margin: 8px 0;
+    border: 1px solid black;
+    gap: 1px;
+    background-color: black;
+    border-radius: 8px;
+    overflow: auto;
+  }
+  
+  li {
+    background-color: white;
+    padding: 8px;
+  }
+  
+  li:hover {
+    background: #dadbf9;
+  }
+  
+  a {
+    font-weight: 800;
+    text-decoration: none;
+  }
 
-/* =======================================================
-   AMPLIFY STORAGE BROWSER OVERRIDES (WORKING FOR MOBILE)
-======================================================= */
-
-/* Fix Safari/iPhone table layout issues */
-.amplify-storage-browser__table th,
-.amplify-storage-browser__table td {
-  max-width: 9999px !important;
+  /* ✅ Responsive adjustments */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px;
+    }
+ 
+    main {
+        width: 100%;
+    }
+ 
+    ul {
+        width: 100%;
+        font-size: 0.9em;
+    }
+ 
+    button {
+        font-size: 0.9em;
+        padding: 0.5em 1em;
+    }
 }
-
-/* Allow table to reflow after column removal */
-.amplify-storage-browser__table {
-  table-layout: auto !important;
-}
-
-/* Hide the Bucket column (2nd column) — fully mobile compatible */
-.amplify-storage-browser__table th:nth-child(2),
-.amplify-storage-browser__table td:nth-child(2) {
-  display: none !important;
-}
+ 
+@media (max-width: 480px) {
+    main {
+        max-width: 100%;
+    }
+ 
+    ul {
+        gap: 0;
+    }
+ 
+    li {
+        padding: 6px;
+        font-size: 0.85em;
+    }
+ 
+    button {
+        font-size: 0.85em;
+    }}
