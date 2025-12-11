@@ -177,7 +177,7 @@ main {
    AMPLIFY STORAGE BROWSER OVERRIDES
 ======================================================= */
 
-/* Hide ONLY the "Bucket" column (second column) */
+/* Hide ONLY the "Bucket" column (second column)sss */
 table[class*="storage"] th:nth-child(2),
 table[class*="storage"] td:nth-child(2) {
   display: none !important;
